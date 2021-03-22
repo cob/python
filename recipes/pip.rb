@@ -42,7 +42,7 @@ end
 execute "install-pip" do
   cwd Chef::Config[:file_cache_path]
   command <<-EOF
-  #{node['python']['binary']} get-pip.py
+  #{node['python']['binary']} get-pip.py 'pip<21'
   EOF
   not_if { ::File.exists?(pip_binary) }
 end
